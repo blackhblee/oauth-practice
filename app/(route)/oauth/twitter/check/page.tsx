@@ -1,6 +1,5 @@
 import { redirect } from "next/navigation";
 import { TwitterApi } from "twitter-api-v2";
-import OAuthTwitterCheckTemplate from "./OAuthTwitterCheckTemplate";
 
 const OAuthTwitterCheckPage = ({
   searchParams,
