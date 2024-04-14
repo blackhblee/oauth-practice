@@ -24,7 +24,7 @@ const OAuthTwitterCheckPage = ({
     .loginWithOAuth2({
       code: searchParams?.code,
       codeVerifier: searchParams?.codeVerifier,
-      redirectUri: "http://localhost:9001/oauth/twitter",
+      redirectUri: `${process.env.NEXT_PUBLIC_ORIGINS}/oauth/twitter`,
     })
     .then(
       async ({

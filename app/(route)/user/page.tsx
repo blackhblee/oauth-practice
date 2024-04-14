@@ -11,7 +11,7 @@ const UserPage = async () => {
   });
 
   const { url, codeVerifier, state } = client.generateOAuth2AuthLink(
-    "http://localhost:9001/oauth/twitter",
+    `${process.env.NEXT_PUBLIC_ORIGINS}/oauth/twitter`,
     { scope: ["users.read", "tweet.read", "follows.read", "follows.write"] },
   );
 
@@ -20,9 +20,19 @@ const UserPage = async () => {
       <h1>User Page</h1>
       <div>
         <TwitterOAuthLink url={url} codeVerifier={codeVerifier} state={state} />
-        <Link href="https://discord.com/oauth2/authorize?client_id=1224948994648838224&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A9001%2Foauth%2Fdiscord&scope=identify+email+guilds">
+        <Link
+          href={`https://discord.com/oauth2/authorize?client_id=1224948994648838224&response_type=code&redirect_uri=${process.env.NEXT_PUBLIC_ORIGINS_URL}%2Foauth%2Fdiscord&scope=identify+email+guilds`}
+        >
           Discord
         </Link>
+        {/* <Script
+          async
+          src="https://telegram.org/js/telegram-widget.js?22"
+          // data-telegram-login="~~Bot"
+          data-size="large"
+          // data-auth-url={`https://localhost/api/v1/profiles/auth/telegram?code=${code}`}
+          data-request-access="write"
+        /> */}
       </div>
     </main>
   );
