@@ -1,7 +1,7 @@
 import { TwitterApi } from "twitter-api-v2";
 import Link from "next/link";
-import Script from "next/script";
 import TwitterOAuthLink from "./_components/TwitterOAuthLink";
+import TelegramOAuthLink from "./_components/TelegramOAuthLink";
 
 const UserPage = async () => {
   const TWITTER_CLIENT_ID = `${process.env.NEXT_PUBLIC_TWITTER_CLIENT_ID}`;
@@ -26,14 +26,7 @@ const UserPage = async () => {
         >
           Discord
         </Link>
-        <Script
-          async
-          src="https://telegram.org/js/telegram-widget.js?22"
-          data-telegram-login="OAuthPracticeBot"
-          data-size="large"
-          // data-auth-url={`https://localhost/api/v1/profiles/auth/telegram?code=${code}`}
-          data-request-access="write"
-        />
+        <TelegramOAuthLink />
       </div>
     </main>
   );

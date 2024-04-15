@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@telegram-auth/react": "^1.0.3",
     "discord-oauth2": "^2.12.1",
     "jotai": "^2.8.0",
     "next": "13.5.6",
