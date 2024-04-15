@@ -1,5 +1,6 @@
 import { TwitterApi } from "twitter-api-v2";
 import Link from "next/link";
+import Script from "next/script";
 import TwitterOAuthLink from "./_components/TwitterOAuthLink";
 
 const UserPage = async () => {
@@ -25,14 +26,14 @@ const UserPage = async () => {
         >
           Discord
         </Link>
-        {/* <Script
+        <Script
           async
           src="https://telegram.org/js/telegram-widget.js?22"
-          // data-telegram-login="~~Bot"
+          data-telegram-login="OAuthPracticeBot"
           data-size="large"
           // data-auth-url={`https://localhost/api/v1/profiles/auth/telegram?code=${code}`}
           data-request-access="write"
-        /> */}
+        />
       </div>
     </main>
   );
