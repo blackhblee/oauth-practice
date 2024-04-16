@@ -15,14 +15,8 @@ const OAuthTwitterTemplate = ({
   const router = useRouter();
   const codeVerifier = useAtomValue(twitterCodeVerifierAtom);
   const stateVerifier = useAtomValue(twitterStateAtom);
-  // const codeVerifier = window.localStorage.getItem("twitterCodeVerifier");
-  // const stateVerifier = window.localStorage.getItem("twitterState");
 
   useEffect(() => {
-    console.log("code", code);
-    console.log("state", state);
-    console.log("codeVerifier", codeVerifier);
-    console.log("stateVerifier", stateVerifier);
     if (code && state && codeVerifier && stateVerifier) {
       router.push(
         `/oauth/twitter/check?code=${code}&state=${state}&codeVerifier=${codeVerifier.replaceAll(
@@ -32,7 +26,7 @@ const OAuthTwitterTemplate = ({
       );
     }
   }, [codeVerifier, stateVerifier]);
-  return <div>hi</div>;
+  return <div>...</div>;
 };
 
 export default OAuthTwitterTemplate;
