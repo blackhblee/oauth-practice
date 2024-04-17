@@ -12,19 +12,12 @@ const OAuthTwitterFollowPage = async ({
   }
 
   const client = new TwitterApi(searchParams?.accessToken);
-  await client.v2
-    .follow(
-      searchParams.userID,
-      process.env.NEXT_PUBLIC_TWITTER_FOLLOW_ID as string,
-    )
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  const res = await client.v2.follow(
+    searchParams.userID,
+    process.env.NEXT_PUBLIC_TWITTER_FOLLOW_ID as string,
+  );
 
-  return <OAuthTwitterFollowTemplate />;
+  return <OAuthTwitterFollowTemplate res={res} />;
 };
 
 export default OAuthTwitterFollowPage;

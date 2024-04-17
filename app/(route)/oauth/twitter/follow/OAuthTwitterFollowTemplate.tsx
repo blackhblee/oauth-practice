@@ -1,11 +1,14 @@
 "use client";
 
 import { useEffect } from "react";
+import { UserV2FollowResult } from "twitter-api-v2";
 
-const OAuthTwitterFollowTemplate = () => {
+const OAuthTwitterFollowTemplate = ({ res }: { res: UserV2FollowResult }) => {
   useEffect(() => {
-    window.close();
-  }, []);
+    if (res.data.following) {
+      window.close();
+    }
+  }, [res.data.following]);
 
   return (
     <div>
