@@ -24,7 +24,11 @@ const TwitterOAuthLink = ({
     }
   }, [codeVerifier, state]);
 
-  return <Link href={url}>Twitter</Link>;
+  return (
+    <Link className="underline" href={url}>
+      Connect to Twitter
+    </Link>
+  );
 };
 
 export default TwitterOAuthLink;
